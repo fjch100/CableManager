@@ -1,0 +1,10 @@
+- cargar longitud previa del cable --- DONE
+- calcula la long actual automaticamente -- DONE
+- salvar la carrera -- DONE
+- salvar la longitud actual en el cable --DONE
+- hacer el update de una carrera -- DONE
+- volver a la ventana principal--DONE
+- actualiza el numero de carreras de un cable -- DONE
+- elimina una carrera: --DONE
+	se debe cambiar la longitud actual del cable a la previa --DONE
+        se deben restar las carreras de este trabajo al cable --DONE
