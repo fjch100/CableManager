@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: cablemanager-db
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+    ports:
+      - 3306:3306
+    volumes:
+      - "cablemanagerdb:/var/lib/mysql"
+  adminer:
+    container_name: cablemanager-adminer
+    image: adminer
+    ports:
+      - 8080:8080
+
+volumes:
+  cablemanagerdb:
+    external: true
