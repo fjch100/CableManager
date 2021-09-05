@@ -156,7 +156,7 @@ namespace CableManager
         //verifica que los inputs no esten vacios
         private bool VerificaInputsFromForm()
         {            
-            if (txtNumCarreras.Text.Trim() == "")
+            if (txtNumCarreras.Text.Trim() == string.Empty || txtNumCarreras.Text.All(Char.IsLetter))
             {
                 MessageBox.Show("El numero de carreras necesita un numero de 0 a 100");
                 return false;
