@@ -44,12 +44,15 @@ namespace CableManager
             Dispose();
         }
 
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
             if (!VerificaformCableInputs())
             {
                 return;
             }
+            
            if (isaNewCable)//NEW CABLE
             {
                 Cable cblModel = new Cable();
@@ -79,6 +82,7 @@ namespace CableManager
             this.DialogResult = DialogResult.OK;
             Dispose();
         }
+
         private Cable ReadCableForm(Cable cModel)
         {            
             cModel.Numero = txtNumCable.Text;
