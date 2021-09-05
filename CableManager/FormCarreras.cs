@@ -156,12 +156,12 @@ namespace CableManager
         //verifica que los inputs no esten vacios
         private bool VerificaInputsFromForm()
         {            
-            if (txtNumCarreras.Text.Trim() == string.Empty || txtNumCarreras.Text.All(Char.IsLetter))
+            if (txtNumCarreras.Text.Trim() == string.Empty || !txtNumCarreras.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("El numero de carreras necesita un numero de 0 a 100");
                 return false;
             }
-            if (txtMaxProfundidad.Text.Trim() == "")
+            if (txtMaxProfundidad.Text.Trim() == string.Empty || !txtMaxProfundidad.Text.All(Char.IsDigit))
             {
                 MessageBox.Show($"la maxima profundidad necesita un numero de 0 a {cblModel.Long_actual}");
                 return false;
@@ -171,17 +171,17 @@ namespace CableManager
                 MessageBox.Show($"la maxima profundidad necesita un numero de 0 a {cblModel.Long_actual}");
                 return false;
             }
-            if (txtMaxTension.Text.Trim() == "")
+            if (txtMaxTension.Text.Trim() == string.Empty || !txtMaxTension.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("La maxima tension necesita un numero de 0 a 16000");
                 return false;
             }
-            if (txtServicesOrder.Text.Trim() == "")
+            if (txtServicesOrder.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("El numero de Orden de Servicio no puede ir vacio");
                 return false;
             }
-            if (txtLongitudActual.Text.Trim() == "")
+            if (txtLongitudActual.Text.Trim() == string.Empty || !txtMaxTension.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("la longitud Actual no puede ir vacia");
                 return false;
