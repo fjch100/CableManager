@@ -46,7 +46,11 @@ namespace CableManager
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           if (cableModel== null)//NEW CABLE
+            if (!VerificaformCableInputs())
+            {
+                return;
+            }
+           if (isaNewCable)//NEW CABLE
             {
                 Cable cblModel = new Cable();
                 cableModel = ReadCableForm(cblModel);
@@ -86,6 +90,41 @@ namespace CableManager
             cModel.Fecha_instalacion = DateTime.Parse(dtpFechaInstalacion.Text);
             cModel.Tipo_cable = txtTipoCable.Text;
             return cModel;
+        }
+
+        private bool VerificaformCableInputs()
+        {
+            if (txtNumCable.Text.Trim() == string.Empty )
+            {
+                MessageBox.Show("El numero del cable no puede estar vacio");
+                return false;
+            }
+            if (txtLongInicial.Text.Trim() == string.Empty || !txtLongInicial.Text.All(Char.IsDigit))
+            {
+                MessageBox.Show("La longitud Inicial necesita un numero de 0 a 10000 m");
+                return false;
+            }
+            if (txtLongActual.Text.Trim() == string.Empty || !txtLongActual.Text.All(Char.IsDigit))
+            {
+                MessageBox.Show($"La longitud Actual necesita un numero de 0 a {double.Parse(txtLongActual.Text)} m");
+                return false;
+            }
+            if (txtNumCarreras.Text.Trim() == string.Empty || !txtNumCarreras.Text.All(Char.IsDigit))
+            {
+                MessageBox.Show("El numero de carreras debe ser un numero de 0 a 100 m");
+                return false;
+            }
+            if (txtNumDrum.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El numero del Drum no puede estar vacio");
+                return false;
+            }
+            if (txtTipoCable.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El tipo de cable no puede estar vacio");
+                return false;
+            }
+            return true;
         }
     }
 }
