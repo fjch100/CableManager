@@ -389,3 +389,5 @@ FodyWeavers.xsd
 
 # Custom
 To_Do.txt
+CableManager/bin/
+CableManager/obj/
