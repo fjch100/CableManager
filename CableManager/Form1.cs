@@ -15,6 +15,8 @@ namespace CableManager
     {
         FormCable fmCable;
         FormCarreras fmcarrera;
+        FormUsuario fmUsuario;
+        
         public Form1()
         {
             InitializeComponent();
@@ -187,6 +189,13 @@ namespace CableManager
                 dataGridView1.Rows[indexCable].Selected = true;//volvemos a seleccionar la row queteniamos al principio
                 dataGridView1.CurrentCell = dataGridView1.Rows[indexCable].Cells[1];// movemos el triangulito al row que se selecciono arriba
             }
+        }
+
+        //MENU USUARIO ABRE VENTANA USUARIOS (PERSONAS)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fmUsuario = new FormUsuario();
+            fmUsuario.ShowDialog();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace CableManager
         private void FillNumCable()
         {
             List<Cable> listaCables = cblModel.GetAllCables();
-            cbNumCable.DataSource = listaCables;
+            cbNumCable.DataSource = cblModel.GetAllCables(); 
             int modelIndex = listaCables.FindIndex(x => x.Numero ==cblModel.Numero);
             cbNumCable.SelectedIndex = modelIndex;
             cbNumCable.Enabled = false;

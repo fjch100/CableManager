@@ -37,3 +37,4 @@ C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csp
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.exe
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.pdb
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csproj.AssemblyReference.cache
+C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.FormUsuario.resources

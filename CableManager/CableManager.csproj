@@ -117,8 +117,16 @@
     <Compile Include="Modelos\Cable.cs" />
     <Compile Include="Modelos\Carrera.cs" />
     <Compile Include="Modelos\Conexion.cs" />
+    <Compile Include="Modelos\Persona.cs" />
+    <Compile Include="Modelos\Posicion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuario.Designer.cs">
+      <DependentUpon>usuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,7 +146,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="usuario.resx">
+      <DependentUpon>usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CableManager.Modelos.Persona.datasource" />
+    <None Include="Properties\DataSources\CableManager.Modelos.Posicion.datasource" />
     <None Include="Properties\DataSources\DapperMysql.Modelos.Cable.datasource" />
     <None Include="Properties\DataSources\DapperMysql.Modelos.Carrera.datasource" />
     <None Include="Properties\Settings.settings">
