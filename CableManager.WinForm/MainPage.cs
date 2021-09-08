@@ -17,7 +17,7 @@ namespace CableManager.WinForm
     public partial class MainPage : Form
     {
         CableForm fmCable;
-        FormCarreras fmcarrera;
+        CarreraForm fmcarrera;
 
         private readonly ICableService _cableService;
         private readonly ICarreraService _carreraService;
@@ -116,7 +116,7 @@ namespace CableManager.WinForm
                 int cableId = int.Parse(row.Cells[0].Value.ToString());
                 var cable = _cableService.GetCableById(cableId);
 
-                fmcarrera = new FormCarreras(_mapper.Map<CableDto>(cable), null, _cableService, _carreraService, _mapper);
+                fmcarrera = new CarreraForm(_mapper.Map<CableDto>(cable), null, _cableService, _carreraService, _mapper);
                 fmcarrera.ShowDialog();
 
                 cablesGridView.DataSource = _mapper.Map<List<CableDto>>(_cableService.GetAllCables()); // actualiza los cables
@@ -145,7 +145,7 @@ namespace CableManager.WinForm
                 var cableModel = _mapper.Map<CableDto>( _cableService.GetCableById(cableId));
                 var craModel = _mapper.Map<CarreraDto>(_carreraService.GetCarreraById(carreraId));
 
-                fmcarrera = new FormCarreras(cableModel, craModel, _cableService, _carreraService, _mapper);
+                fmcarrera = new CarreraForm(cableModel, craModel, _cableService, _carreraService, _mapper);
                 fmcarrera.ShowDialog();
 
                 cablesGridView.DataSource = _mapper.Map<List<CableDto>>(_cableService.GetAllCables()); // actualiza los cables

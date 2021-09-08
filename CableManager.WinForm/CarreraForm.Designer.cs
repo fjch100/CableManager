@@ -1,7 +1,7 @@
 ﻿
 namespace CableManager.WinForm
 {
-    partial class FormCarreras
+    partial class CarreraForm
     {
         /// <summary>
         /// Required designer variable.

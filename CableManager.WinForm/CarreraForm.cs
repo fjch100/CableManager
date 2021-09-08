@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace CableManager.WinForm
 {
-    public partial class FormCarreras : Form
+    public partial class CarreraForm : Form
     {
         CableDto cblModel;
         CarreraDto cra;
@@ -23,7 +23,7 @@ namespace CableManager.WinForm
         private readonly ICableService _cableService;
         private readonly IMapper _mapper;
 
-        public FormCarreras(CableDto cable, CarreraDto carrera,
+        public CarreraForm(CableDto cable, CarreraDto carrera,
             ICableService cableService,
             ICarreraService carreraService, 
             IMapper mapper)
