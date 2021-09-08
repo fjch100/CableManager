@@ -18,12 +18,12 @@ namespace CableManager
     {
         bool isaNewCable = true;
 
-        private readonly CableService _cableService;
+        private readonly ICableService _cableService;
         private readonly IMapper _mapper;
 
         CableDto _cableModel;
 
-        public CableForm(CableDto cable, CableService cableService, IMapper mapper)
+        public CableForm(CableDto cable, ICableService cableService, IMapper mapper)
         {
             _cableModel = cable;
             _mapper = mapper;

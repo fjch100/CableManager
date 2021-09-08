@@ -19,11 +19,11 @@ namespace CableManager
         CableForm fmCable;
         FormCarreras fmcarrera;
 
-        private readonly CableService _cableService;
-        private readonly CarreraService _carreraService;
+        private readonly ICableService _cableService;
+        private readonly ICarreraService _carreraService;
         private readonly IMapper _mapper;
 
-        public MainPage(CableService cableService, CarreraService carreraService, IMapper mapper)
+        public MainPage(ICableService cableService, ICarreraService carreraService, IMapper mapper)
         {
             _mapper = mapper;
             _cableService = cableService;

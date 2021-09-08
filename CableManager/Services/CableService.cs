@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CableManager.Services
 {
-    public class CableService
+    public class CableService : ICableService
     {
         private readonly CableManagerDbContext _db;
 
@@ -54,7 +54,7 @@ namespace CableManager.Services
             _db.Cables.Add(cable);
         }
 
-        public void UpdateCable() 
+        public void UpdateCable()
         {
             // No implementation required
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CableManager.Services
 {
-    public class CarreraService
+    public class CarreraService : ICarreraService
     {
         private readonly CableManagerDbContext _db;
 

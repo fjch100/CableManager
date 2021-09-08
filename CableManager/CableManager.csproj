@@ -140,6 +140,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CableService.cs" />
     <Compile Include="Services\CarreraService.cs" />
+    <Compile Include="Services\ICableService.cs" />
+    <Compile Include="Services\ICarreraService.cs" />
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>

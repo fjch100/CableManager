@@ -19,13 +19,13 @@ namespace CableManager
         CableDto cblModel;
         CarreraDto cra;
 
-        private readonly CarreraService _carreraService;
-        private readonly CableService _cableService;
+        private readonly ICarreraService _carreraService;
+        private readonly ICableService _cableService;
         private readonly IMapper _mapper;
 
-        public FormCarreras(CableDto cable, CarreraDto carrera, 
-            CableService cableService, 
-            CarreraService carreraService, 
+        public FormCarreras(CableDto cable, CarreraDto carrera,
+            ICableService cableService,
+            ICarreraService carreraService, 
             IMapper mapper)
         {
             cblModel = cable;
