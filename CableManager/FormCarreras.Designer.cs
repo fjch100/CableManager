@@ -327,7 +327,7 @@ namespace CableManager
             // 
             // cableBindingSource
             // 
-            this.cableBindingSource.DataSource = typeof(CableManager.Modelos.Cable);
+            this.cableBindingSource.DataSource = typeof(CableManager.Modelos.CableDto);
             // 
             // dateTimePicker1
             // 

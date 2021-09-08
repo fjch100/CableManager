@@ -1,7 +1,7 @@
 ﻿
 namespace CableManager
 {
-    partial class FormCable
+    partial class CableForm
     {
         /// <summary>
         /// Required designer variable.

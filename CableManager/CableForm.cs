@@ -1,4 +1,7 @@
-﻿using CableManager.Modelos;
+﻿using AutoMapper;
+using CableManager.Modelos;
+using CableManager.Models;
+using CableManager.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,30 +14,40 @@ using System.Windows.Forms;
 
 namespace CableManager
 {
-    public partial class FormCable : Form
+    public partial class CableForm : Form
     {
         bool isaNewCable = true;
-        Cable cableModel;
-        public FormCable(Cable cable)
+
+        private readonly CableService _cableService;
+        private readonly IMapper _mapper;
+
+        CableDto _cableModel;
+
+        public CableForm(CableDto cable, CableService cableService, IMapper mapper)
         {
-            cableModel = cable;
+            _cableModel = cable;
+            _mapper = mapper;
+            _cableService = cableService;
+
             InitializeComponent();
-            if(cableModel==null)
+
+            if(_cableModel == null)
             {
                 lblCable.Text = "New Cable";
                 isaNewCable = true;
-            }else
+            }
+            else
             {
                 isaNewCable = false;
-                lblCable.Text = $"Cable: {cableModel.Numero}";
-                txtNumCable.Text = cableModel.Numero;
-                txtLongInicial.Text = cableModel.Long_inicial.ToString();
-                txtLongActual.Text = cableModel.Long_actual.ToString();
-                txtNumCarreras.Text = cableModel.Carreras.ToString();
-                txtNumDrum.Text = cableModel.Drum;
-                dtpFechaLlegada.Text = cableModel.Fecha_llegada.ToString();
-                dtpFechaInstalacion.Text = cableModel.Fecha_instalacion.ToString();
-                txtTipoCable.Text = cableModel.Tipo_cable;               
+                lblCable.Text = $"Cable: {_cableModel.Numero}";
+                txtNumCable.Text = _cableModel.Numero;
+                txtLongInicial.Text = _cableModel.Long_inicial.ToString();
+                txtLongActual.Text = _cableModel.Long_actual.ToString();
+                txtNumCarreras.Text = _cableModel.Carreras.ToString();
+                txtNumDrum.Text = _cableModel.Drum;
+                dtpFechaLlegada.Text = _cableModel.Fecha_llegada.ToString();
+                dtpFechaInstalacion.Text = _cableModel.Fecha_instalacion.ToString();
+                txtTipoCable.Text = _cableModel.Tipo_cable;               
             }
         }
 
@@ -55,9 +68,12 @@ namespace CableManager
             
            if (isaNewCable)//NEW CABLE
             {
-                Cable cblModel = new Cable();
-                cableModel = ReadCableForm(cblModel);
-                bool wasInserted = cableModel.InsertOneCable(cableModel);
+                var newCableDto = ReadCableForm();
+
+                _cableService.CreateCable(_mapper.Map<Cable>(newCableDto));
+
+                bool wasInserted = _cableService.SaveChanges();
+
                 if (wasInserted)
                 {
                     MessageBox.Show("New Cable inserted OK");
@@ -68,8 +84,14 @@ namespace CableManager
             }
             else //Edit cable
             {
-                cableModel = ReadCableForm(cableModel);
-                bool wasUpdated = cableModel.UpdateOneCable(cableModel);
+                var cableModel = ReadCableForm();
+                var cableToUpdate = _cableService.GetCableById(_cableModel.Id);
+
+                // mappea los atributos del modelo hacia el registro existente en la base de datos
+                _mapper.Map(cableModel, cableToUpdate); 
+
+                bool wasUpdated = _cableService.SaveChanges();
+
                 if (wasUpdated)
                 {
                     MessageBox.Show("Cable Updated OK");
@@ -83,16 +105,20 @@ namespace CableManager
             Dispose();
         }
 
-        private Cable ReadCableForm(Cable cModel)
-        {            
-            cModel.Numero = txtNumCable.Text;
-            cModel.Long_inicial = double.Parse(txtLongInicial.Text);
-            cModel.Long_actual = double.Parse(txtLongActual.Text);
-            cModel.Carreras = int.Parse(txtNumCarreras.Text);
-            cModel.Drum = txtNumDrum.Text;
-            cModel.Fecha_llegada = DateTime.Parse(dtpFechaLlegada.Text);
-            cModel.Fecha_instalacion = DateTime.Parse(dtpFechaInstalacion.Text);
-            cModel.Tipo_cable = txtTipoCable.Text;
+        private CableDto ReadCableForm()
+        {
+            var cModel = new CableDto()
+            {
+                Numero = txtNumCable.Text,
+                Long_inicial = double.Parse(txtLongInicial.Text),
+                Long_actual = double.Parse(txtLongActual.Text),
+                Carreras = int.Parse(txtNumCarreras.Text),
+                Drum = txtNumDrum.Text,
+                Fecha_llegada = DateTime.Parse(dtpFechaLlegada.Text),
+                Fecha_instalacion = DateTime.Parse(dtpFechaInstalacion.Text),
+                Tipo_cable = txtTipoCable.Text
+            };
+
             return cModel;
         }
 

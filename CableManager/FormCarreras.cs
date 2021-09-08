@@ -1,4 +1,7 @@
-﻿using CableManager.Modelos;
+﻿using AutoMapper;
+using CableManager.Modelos;
+using CableManager.Models;
+using CableManager.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,24 +16,38 @@ namespace CableManager
 {
     public partial class FormCarreras : Form
     {
-        Cable cblModel;
-        Carrera cra;
-        public FormCarreras(Cable cable, Carrera carrera)
+        CableDto cblModel;
+        CarreraDto cra;
+
+        private readonly CarreraService _carreraService;
+        private readonly CableService _cableService;
+        private readonly IMapper _mapper;
+
+        public FormCarreras(CableDto cable, CarreraDto carrera, 
+            CableService cableService, 
+            CarreraService carreraService, 
+            IMapper mapper)
         {
             cblModel = cable;
-            cra = carrera; 
+            cra = carrera;
+            _mapper = mapper;
+            _cableService = cableService;
+            _carreraService = carreraService;
+
             InitializeComponent();
             FillNumCable();
+
             txtLongPrevia.Text = cable.Long_actual.ToString();
             txtLongitudActual.Text = cable.Long_actual.ToString();
             txtCantidadCortada.Text = "0";
+
             if (carrera != null)
             {
                 FillCarreraForm(carrera);
             }
         }
 
-        private void FillCarreraForm(Carrera carrera)
+        private void FillCarreraForm(CarreraDto carrera)
         {
             txtNumCarreras.Text = carrera.Num_carreras.ToString();
             txtMaxProfundidad.Text = carrera.Max_profundidad.ToString();
@@ -53,7 +70,7 @@ namespace CableManager
         //llena el combobox del numero del cable en el formulario
         private void FillNumCable()
         {
-            List<Cable> listaCables = cblModel.GetAllCables();
+            List<CableDto> listaCables = _mapper.Map<List<CableDto>>(_cableService.GetAllCables());
             cbNumCable.DataSource = listaCables;
             int modelIndex = listaCables.FindIndex(x => x.Numero ==cblModel.Numero);
             cbNumCable.SelectedIndex = modelIndex;
@@ -72,9 +89,8 @@ namespace CableManager
                 double long_actual = long_previa - cantidad_cortada;
                 txtLongitudActual.Text = long_actual.ToString();
             }
-            catch (Exception ex)
+            catch
             {
-
                 MessageBox.Show("La cantidad cortada debe ser un numero");
             }
         }
@@ -91,19 +107,22 @@ namespace CableManager
         {
             int numCarreraAnterior = 0;
             bool isaNewCarrera = false;
+
             if (!VerificaInputsFromForm())
             { 
                 return; 
             }
+
             if (cra == null)
             {
-                cra = new Carrera();
+                cra = new CarreraDto();
                 isaNewCarrera = true;
             }
             else
             {
                 numCarreraAnterior = cra.Num_carreras;
-            }            
+            }   
+            
             cra.CableId = cblModel.Id;
             cra.Num_carreras = int.Parse(txtNumCarreras.Text.Trim());
             cra.Max_profundidad = double.Parse(txtMaxProfundidad.Text.Trim());
@@ -116,13 +135,16 @@ namespace CableManager
             cra.Cantidad_cortada = double.Parse(txtCantidadCortada.Text.Trim());
             cra.Long_previa = double.Parse(txtLongPrevia.Text.Trim());
             cra.Comentarios = txtComentarios.Text;
+
             if (isaNewCarrera)
             {
-                if (cra.InsertOneCarrera(cra))
+                _carreraService.CreateCarrera(_mapper.Map<Carrera>(cra));
+
+                if (_carreraService.SaveChanges())
                 {
-                    cblModel.Carreras += cra.Num_carreras; 
-                    cblModel.Long_actual = double.Parse(txtLongitudActual.Text.Trim());
-                    if (cblModel.UpdateOneCable(cblModel))
+                    _cableService.UpdateCableInfoAfterCarreraCreation(cra.CableId, _mapper.Map<Carrera>(cra));
+
+                    if (_cableService.SaveChanges())
                     {
                         MessageBox.Show("El Uso/Carrera se guardo Satisfactoriamente");
                     }
@@ -134,11 +156,15 @@ namespace CableManager
             }
             else
             {
-                if (cra.UpdateOneCarrera(cra))
+                var carreraToUpdate = _carreraService.GetCarreraById(cra.Id);
+
+                _mapper.Map(cra, carreraToUpdate);
+
+                if (_carreraService.SaveChanges())
                 {
-                    cblModel.Long_actual = double.Parse(txtLongitudActual.Text.Trim());
-                    cblModel.Carreras += cra.Num_carreras - numCarreraAnterior;
-                    if (cblModel.UpdateOneCable(cblModel))
+                    _cableService.UpdateCableInfoAfterCarreraUpdate(cra.CableId, _mapper.Map<Carrera>(cra), numCarreraAnterior);
+
+                    if (_cableService.SaveChanges())
                     {
                         MessageBox.Show("El Uso/Carrera se guardo Satisfactoriamente");
                     }
