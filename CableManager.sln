@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CableManager.WinForm", "Cab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CableManager.Business", "CableManager.Business\CableManager.Business.csproj", "{002B3A44-67E1-460E-B395-FF19F7A38A77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CableManager.Business.Test", "CableManager.Business.Test\CableManager.Business.Test.csproj", "{56F00AB0-A963-46A3-9D6D-5311462047D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{002B3A44-67E1-460E-B395-FF19F7A38A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{002B3A44-67E1-460E-B395-FF19F7A38A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{002B3A44-67E1-460E-B395-FF19F7A38A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F00AB0-A963-46A3-9D6D-5311462047D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F00AB0-A963-46A3-9D6D-5311462047D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F00AB0-A963-46A3-9D6D-5311462047D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F00AB0-A963-46A3-9D6D-5311462047D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

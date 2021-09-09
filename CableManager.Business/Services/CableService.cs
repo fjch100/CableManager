@@ -31,7 +31,7 @@ namespace CableManager.Business.Services
         {
             var cableToUpdate = _db.Cables.Find(cableId);
             cableToUpdate.Long_actual = carrera.Long_previa;
-            cableToUpdate.Carreras = cableToUpdate.Carreras - carrera.Num_carreras;
+            cableToUpdate.Carreras -= carrera.Num_carreras;
         }
 
         public void UpdateCableInfoAfterCarreraCreation(int cableId, Carrera carrera)
@@ -45,6 +45,7 @@ namespace CableManager.Business.Services
         public void UpdateCableInfoAfterCarreraUpdate(int cableId, Carrera carrera, int numCarreraAnterior)
         {
             var cableToUpdate = _db.Cables.Find(cableId);
+
             cableToUpdate.Long_actual = carrera.Long_actual;
             cableToUpdate.Carreras += carrera.Num_carreras - numCarreraAnterior;
         }
