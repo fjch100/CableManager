@@ -53,10 +53,10 @@ namespace CableManager.Business.Test
             var mockContext = new Mock<CableManagerDbContext>();
             mockContext.Setup(m => m.Cables).Returns(mockSet.Object);
 
-            var service = new CableService(mockContext.Object);
+            var sut = new CableService(mockContext.Object);
 
             // Act
-            service.UpdateCableInfoAfterCarreraDeletion(cableToUpdate.Id, carreraDeleted);
+            sut.UpdateCableInfoAfterCarreraDeletion(cableToUpdate.Id, carreraDeleted);
 
 
             // Assert
@@ -103,10 +103,10 @@ namespace CableManager.Business.Test
             var mockContext = new Mock<CableManagerDbContext>();
             mockContext.Setup(m => m.Cables).Returns(mockSet.Object);
 
-            var service = new CableService(mockContext.Object);
+            var sut = new CableService(mockContext.Object);
 
             // Act
-            service.UpdateCableInfoAfterCarreraCreation(cableToUpdate.Id, newCarrera);
+            sut.UpdateCableInfoAfterCarreraCreation(cableToUpdate.Id, newCarrera);
 
 
             // Assert
@@ -156,10 +156,10 @@ namespace CableManager.Business.Test
             var mockContext = new Mock<CableManagerDbContext>();
             mockContext.Setup(m => m.Cables).Returns(mockSet.Object);
 
-            var service = new CableService(mockContext.Object);
+            var sut = new CableService(mockContext.Object);
 
             // Act
-            service.UpdateCableInfoAfterCarreraUpdate(cableToUpdate.Id, updatedCarrera, numCarrerasAnteriores);
+            sut.UpdateCableInfoAfterCarreraUpdate(cableToUpdate.Id, updatedCarrera, numCarrerasAnteriores);
 
 
             // Assert
