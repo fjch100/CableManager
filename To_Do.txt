@@ -8,3 +8,7 @@
 - elimina una carrera: --DONE
 	se debe cambiar la longitud actual del cable a la previa --DONE
         se deben restar las carreras de este trabajo al cable --DONE
+- Modificar la tabla Usuario agregar Activo/Inactivo --> activo = int (1/0) DONE
+- modificar el modelo Usuario para tener activo y strActivo -- DONE
+- modificar el formulario Usuario con el nuevo campo Activo --DONE
+- Modificar el formulario FormCarreras con comboboxes para Ing y Malacatero

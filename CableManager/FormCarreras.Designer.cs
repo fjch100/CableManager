@@ -41,7 +41,6 @@ namespace CableManager
             this.label4 = new System.Windows.Forms.Label();
             this.txtMalacatero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIngeniero = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtServicesOrder = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace CableManager
             this.cbNumCable = new System.Windows.Forms.ComboBox();
             this.cableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtIngeniero = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cableBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -67,9 +67,10 @@ namespace CableManager
             // 
             this.panel1.BackColor = System.Drawing.Color.ForestGreen;
             this.panel1.Controls.Add(this.lblCarrera);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 62);
+            this.panel1.Size = new System.Drawing.Size(559, 62);
             this.panel1.TabIndex = 0;
             // 
             // lblCarrera
@@ -164,15 +165,6 @@ namespace CableManager
             this.label5.Size = new System.Drawing.Size(105, 18);
             this.label5.TabIndex = 15;
             this.label5.Text = "Malacatero:";
-            // 
-            // txtIngeniero
-            // 
-            this.txtIngeniero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIngeniero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIngeniero.Location = new System.Drawing.Point(252, 371);
-            this.txtIngeniero.Name = "txtIngeniero";
-            this.txtIngeniero.Size = new System.Drawing.Size(210, 26);
-            this.txtIngeniero.TabIndex = 14;
             // 
             // label6
             // 
@@ -288,10 +280,10 @@ namespace CableManager
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.BackColor = System.Drawing.Color.LightGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(81, 689);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 29);
@@ -339,6 +331,15 @@ namespace CableManager
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(210, 26);
             this.dateTimePicker1.TabIndex = 28;
+            // 
+            // txtIngeniero
+            // 
+            this.txtIngeniero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIngeniero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIngeniero.Location = new System.Drawing.Point(252, 371);
+            this.txtIngeniero.Name = "txtIngeniero";
+            this.txtIngeniero.Size = new System.Drawing.Size(210, 26);
+            this.txtIngeniero.TabIndex = 14;
             // 
             // FormCarreras
             // 
@@ -395,7 +396,6 @@ namespace CableManager
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMalacatero;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIngeniero;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtServicesOrder;
@@ -413,5 +413,6 @@ namespace CableManager
         private System.Windows.Forms.ComboBox cbNumCable;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.BindingSource cableBindingSource;
+        private System.Windows.Forms.TextBox txtIngeniero;
     }
 }

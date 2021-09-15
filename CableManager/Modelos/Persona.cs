@@ -13,17 +13,28 @@ namespace CableManager.Modelos
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Direccion { get; set; }
+        public int Activo { get; set; }
+        public string StrActivo { get; set; }
         public string Posicion { get; set; }
+        
 
         public Persona()
         {
             this.Tabla = "persona";
         }
 
-        public List<Persona> GetAllPersonas()
+        public List<Persona> GetAllPersonas(bool activos=false)
         {
             string query = "SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id;";
+            if (activos)
+            {
+                query += "WHERE per.Activo = 1";
+            }
             var personas = DbQuery<Persona>(query);
+            foreach (Persona per in personas)
+            {
+                per.StrActivo = SetStrActivo(per.Activo);
+            }
             return personas;
         }
 
@@ -31,30 +42,39 @@ namespace CableManager.Modelos
         {
             string query = $"SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id WHERE per.id={id};";
             var persona = DbQuery<Persona>(query).FirstOrDefault();
+            persona.StrActivo = SetStrActivo(persona.Activo);
             return persona;
         }
 
-        public List<Persona> GetAllPersonasFromPosicion(int posicionId)
+        public List<Persona> GetAllPersonasFromPosicion(int posicionId, bool activos= false)
         {
             string query = $"SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id WHERE pos.id={posicionId};";
+            if (activos)
+            {
+                query += "AND per.Activo = 1";
+            }
             var personas = DbQuery<Persona>(query);
+            foreach (Persona per in personas)
+            {
+                per.StrActivo = SetStrActivo(per.Activo);
+            }
             return personas;
         }
 
         public bool InsertOnePersona(Persona pnaModel)
         {
             string query = $"INSERT INTO {Tabla} " +
-                $"(PosicionId, Nombre, Apellido, Direccion) " +
-                $"Values (@PosicionId, @Nombre, @Apellido, @Direccion);";
+                $"(PosicionId, Nombre, Apellido, Direccion, Activo) " +
+                $"Values (@PosicionId, @Nombre, @Apellido, @Direccion, @Activo);";
             var parametros = BuildAnonimousObject(pnaModel, AccionesBase.INSERT);
             var wasInserted = DbInsert(query, parametros);
             return wasInserted;
         }
 
-        public bool UpdateOneCarrera(Persona pnaModel)
+        public bool UpdateOnePersona(Persona pnaModel)
         {
             string query = $"UPDATE {Tabla} SET " +
-                $"PosicionId = @PosicionId, Nombre=@Nombre, Apellido=@Apellido, Direccion=@Direccion " +               
+                $"PosicionId = @PosicionId, Nombre=@Nombre, Apellido=@Apellido, Direccion=@Direccion, Activo=@Activo " +               
                 $"WHERE Id=@Id;";
             var parametros = BuildAnonimousObject(pnaModel, AccionesBase.UPDATE);
             var wasUpdated = DbUpdate(query, parametros);
@@ -71,7 +91,8 @@ namespace CableManager.Modelos
                     PosicionId = model.PosicionId,
                     nombre = model.Nombre,
                     Apellido = model.Apellido,
-                    Direccion = model.Direccion
+                    Direccion = model.Direccion,
+                    Activo = model.Activo
                 };
             }
             return new
@@ -80,8 +101,21 @@ namespace CableManager.Modelos
                 PosicionId = model.PosicionId,
                 nombre = model.Nombre,
                 Apellido = model.Apellido,
-                Direccion = model.Direccion
+                Direccion = model.Direccion,
+                Activo = model.Activo
             };
+        }
+
+        private string SetStrActivo(int activo)
+        {
+            if (activo == 1)
+            {
+                return "Activo";
+            }
+            else
+            {
+                return "Inactivo";
+            }
         }
     }
 }

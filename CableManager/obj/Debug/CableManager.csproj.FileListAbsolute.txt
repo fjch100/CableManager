@@ -31,10 +31,10 @@ C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.For
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.FormCable.resources
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.FormCarreras.resources
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.Properties.Resources.resources
+C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.FormUsuario.resources
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csproj.GenerateResource.cache
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csproj.CoreCompileInputs.cache
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csproj.CopyComplete
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.exe
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.pdb
 C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.csproj.AssemblyReference.cache
-C:\Users\fjch1\source\repos\CableManager\CableManager\obj\Debug\CableManager.FormUsuario.resources
