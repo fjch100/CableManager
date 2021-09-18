@@ -21,5 +21,12 @@ namespace CableManager.Modelos
             return DbQueryAll<Posicion>();
         }
 
+        public Posicion GetPosicionFromPosicionName(String posicion)
+        {
+            string query = $"SELECT * FROM posicion WHERE PosicionName = '{posicion}';";
+            var posModel = DbQuery<Posicion>(query).FirstOrDefault();
+            return posModel;
+        }
+
     }
 }

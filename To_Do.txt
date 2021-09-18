@@ -11,4 +11,5 @@
 - Modificar la tabla Usuario agregar Activo/Inactivo --> activo = int (1/0) DONE
 - modificar el modelo Usuario para tener activo y strActivo -- DONE
 - modificar el formulario Usuario con el nuevo campo Activo --DONE
-- Modificar el formulario FormCarreras con comboboxes para Ing y Malacatero
+- Modificar el formulario FormCarreras con comboboxes para Ing y Malacatero -- DONE
+- modificar la tabla carrera y colocar indices(ids) para ingeniero y malacatero -- DONE

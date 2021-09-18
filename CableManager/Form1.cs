@@ -27,7 +27,7 @@ namespace CableManager
             Cable cable = new Cable();
             Carrera carrera = new Carrera();
             dataGridView1.DataSource = cable.GetAllCables();
-            dataGridView2.DataSource = carrera.GetAllCarreras();
+            //dataGridView2.DataSource = carrera.GetAllCarreras();
             
         }
 

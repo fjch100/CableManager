@@ -15,10 +15,12 @@ namespace CableManager
     {
         Cable cblModel;
         Carrera cra;
+        Persona pers;
         public FormCarreras(Cable cable, Carrera carrera)
         {
             cblModel = cable;
-            cra = carrera; 
+            cra = carrera;
+            pers = new Persona();
             InitializeComponent();
             FillNumCable();
             txtLongPrevia.Text = cable.Long_actual.ToString();
@@ -28,6 +30,8 @@ namespace CableManager
             {
                 FillCarreraForm(carrera);
             }
+            fillCbIngeniero();
+            fillCbMalacatero();
         }
 
         private void FillCarreraForm(Carrera carrera)
@@ -37,8 +41,9 @@ namespace CableManager
             txtMaxTension.Text = carrera.Max_tension.ToString();
             txtServicesOrder.Text = carrera.Service_order;
             dateTimePicker1.Text = carrera.Fecha_Servicio.ToString();
-            txtIngeniero.Text = carrera.Ingeniero;
-            txtMalacatero.Text = carrera.Malacatero;
+            //txtIngeniero.Text = carrera.Ingeniero;
+            
+           // txtMalacatero.Text = carrera.Malacatero;
             txtComentarios.Text = carrera.Comentarios;
         }
 
@@ -60,6 +65,43 @@ namespace CableManager
             cbNumCable.Enabled = false;
         }        
         
+
+        private void fillCbIngeniero()
+        {
+            Posicion posModel = new Posicion();
+            posModel = posModel.GetPosicionFromPosicionName("Ingeniero");
+            List<Persona> ingenieros = pers.GetAllPersonasFromPosicion(posModel.Id, true);
+            foreach(var ing in ingenieros)
+            {
+                ing.Nombre = ing.Nombre + " " + ing.Apellido;
+            }           
+            cbIngeniero.DataSource = ingenieros;
+            if(cra!=null)
+            {
+                int modelIndex = ingenieros.FindIndex(x => x.Id == cra.IngenieroId);
+                cbIngeniero.SelectedIndex = modelIndex;
+            }
+            
+        }
+
+        private void fillCbMalacatero()
+        {
+            Posicion posModel = new Posicion();
+            posModel = posModel.GetPosicionFromPosicionName("Malacatero");
+            List<Persona> malacateros = pers.GetAllPersonasFromPosicion(posModel.Id, true);
+            foreach (var malaca in malacateros)
+            {
+                malaca.Nombre = malaca.Nombre + " " + malaca.Apellido;
+            }
+            cbMalacatero.DataSource = malacateros;
+            if (cra != null)
+            {
+                int modelIndex = malacateros.FindIndex(x => x.Id == cra.MalacateroId);
+                cbMalacatero.SelectedIndex = modelIndex;
+            }
+                
+        }
+
 
         //funcion helper para verificar el cambio en la longitud cortada y 
         //calcular la longitud actual, primero verifica que la cantidad cortada sea un numero
@@ -110,8 +152,12 @@ namespace CableManager
             cra.Max_tension = double.Parse(txtMaxTension.Text.Trim());
             cra.Service_order = txtServicesOrder.Text.Trim();
             cra.Fecha_Servicio = DateTime.Parse(dateTimePicker1.Text);
-            cra.Ingeniero = txtIngeniero.Text;
-            cra.Malacatero = txtMalacatero.Text;
+            var ing = (Persona)cbIngeniero.SelectedItem;
+            cra.IngenieroId = ing.Id;
+            cra.StrIngenieroName = cbIngeniero.Text;
+            var malaca = (Persona)cbMalacatero.SelectedItem;
+            cra.MalacateroId = malaca.Id;
+            cra.StrMalacateroName = cbMalacatero.Text;
             cra.Long_actual = double.Parse(txtLongitudActual.Text.Trim());
             cra.Cantidad_cortada = double.Parse(txtCantidadCortada.Text.Trim());
             cra.Long_previa = double.Parse(txtLongPrevia.Text.Trim());
@@ -188,5 +234,7 @@ namespace CableManager
             }
             return true;
         }
+
+       
     }
 }

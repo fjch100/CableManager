@@ -39,7 +39,6 @@ namespace CableManager
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaxTension = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtMalacatero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,9 +57,14 @@ namespace CableManager
             this.cbNumCable = new System.Windows.Forms.ComboBox();
             this.cableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtIngeniero = new System.Windows.Forms.TextBox();
+            this.cbIngeniero = new System.Windows.Forms.ComboBox();
+            this.personaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbMalacatero = new System.Windows.Forms.ComboBox();
+            this.personaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -147,14 +151,6 @@ namespace CableManager
             this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "Max Tension:";
-            // 
-            // txtMalacatero
-            // 
-            this.txtMalacatero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMalacatero.Location = new System.Drawing.Point(252, 415);
-            this.txtMalacatero.Name = "txtMalacatero";
-            this.txtMalacatero.Size = new System.Drawing.Size(210, 26);
-            this.txtMalacatero.TabIndex = 16;
             // 
             // label5
             // 
@@ -332,20 +328,45 @@ namespace CableManager
             this.dateTimePicker1.Size = new System.Drawing.Size(210, 26);
             this.dateTimePicker1.TabIndex = 28;
             // 
-            // txtIngeniero
+            // cbIngeniero
             // 
-            this.txtIngeniero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIngeniero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIngeniero.Location = new System.Drawing.Point(252, 371);
-            this.txtIngeniero.Name = "txtIngeniero";
-            this.txtIngeniero.Size = new System.Drawing.Size(210, 26);
-            this.txtIngeniero.TabIndex = 14;
+            this.cbIngeniero.DataSource = this.personaBindingSource;
+            this.cbIngeniero.DisplayMember = "Nombre";
+            this.cbIngeniero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIngeniero.FormattingEnabled = true;
+            this.cbIngeniero.Location = new System.Drawing.Point(252, 375);
+            this.cbIngeniero.Name = "cbIngeniero";
+            this.cbIngeniero.Size = new System.Drawing.Size(208, 26);
+            this.cbIngeniero.TabIndex = 29;
+            this.cbIngeniero.ValueMember = "Id";
+            // 
+            // personaBindingSource
+            // 
+            this.personaBindingSource.DataSource = typeof(CableManager.Modelos.Persona);
+            // 
+            // cbMalacatero
+            // 
+            this.cbMalacatero.DataSource = this.personaBindingSource1;
+            this.cbMalacatero.DisplayMember = "Nombre";
+            this.cbMalacatero.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMalacatero.FormattingEnabled = true;
+            this.cbMalacatero.Location = new System.Drawing.Point(252, 418);
+            this.cbMalacatero.Name = "cbMalacatero";
+            this.cbMalacatero.Size = new System.Drawing.Size(208, 26);
+            this.cbMalacatero.TabIndex = 30;
+            this.cbMalacatero.ValueMember = "Id";
+            // 
+            // personaBindingSource1
+            // 
+            this.personaBindingSource1.DataSource = typeof(CableManager.Modelos.Persona);
             // 
             // FormCarreras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 740);
+            this.Controls.Add(this.cbMalacatero);
+            this.Controls.Add(this.cbIngeniero);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cbNumCable);
             this.Controls.Add(this.button2);
@@ -358,9 +379,7 @@ namespace CableManager
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtLongPrevia);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtMalacatero);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtIngeniero);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtServicesOrder);
@@ -378,6 +397,8 @@ namespace CableManager
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +415,6 @@ namespace CableManager
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaxTension;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtMalacatero;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -413,6 +433,9 @@ namespace CableManager
         private System.Windows.Forms.ComboBox cbNumCable;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.BindingSource cableBindingSource;
-        private System.Windows.Forms.TextBox txtIngeniero;
+        private System.Windows.Forms.ComboBox cbIngeniero;
+        private System.Windows.Forms.ComboBox cbMalacatero;
+        private System.Windows.Forms.BindingSource personaBindingSource;
+        private System.Windows.Forms.BindingSource personaBindingSource1;
     }
 }

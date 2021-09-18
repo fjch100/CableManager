@@ -25,10 +25,10 @@ namespace CableManager.Modelos
 
         public List<Persona> GetAllPersonas(bool activos=false)
         {
-            string query = "SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id;";
+            string query = "SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id";
             if (activos)
             {
-                query += "WHERE per.Activo = 1";
+                query += " WHERE per.Activo = 1";
             }
             var personas = DbQuery<Persona>(query);
             foreach (Persona per in personas)
@@ -48,10 +48,10 @@ namespace CableManager.Modelos
 
         public List<Persona> GetAllPersonasFromPosicion(int posicionId, bool activos= false)
         {
-            string query = $"SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id WHERE pos.id={posicionId};";
+            string query = $"SELECT per.*, pos.PosicionName as 'Posicion' FROM persona per JOIN  posicion pos on per.PosicionId = pos.id WHERE pos.id={posicionId}";
             if (activos)
             {
-                query += "AND per.Activo = 1";
+                query += " AND per.Activo = 1";
             }
             var personas = DbQuery<Persona>(query);
             foreach (Persona per in personas)

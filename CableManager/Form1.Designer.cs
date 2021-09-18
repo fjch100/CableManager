@@ -38,7 +38,6 @@ namespace CableManager
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CableNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newCableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,22 +54,7 @@ namespace CableManager
             this.btnAddCarrera = new System.Windows.Forms.Button();
             this.btnEditaCarrera = new System.Windows.Forms.Button();
             this.btnEliminaCarrera = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaServicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cableIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceorderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numcarrerasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxprofundidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxtensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.longpreviaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadcortadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.longactualDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.malacateroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingenieroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comentariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carreraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.longinicialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +65,22 @@ namespace CableManager
             this.fechainstalacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipocableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaServicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CableNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cableIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceorderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numcarrerasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxprofundidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxtensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.longpreviaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadcortadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.longactualDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StrIngenieroName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StrMalacateroName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comentariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -169,8 +169,8 @@ namespace CableManager
             this.longpreviaDataGridViewTextBoxColumn,
             this.cantidadcortadaDataGridViewTextBoxColumn,
             this.longactualDataGridViewTextBoxColumn1,
-            this.malacateroDataGridViewTextBoxColumn,
-            this.ingenieroDataGridViewTextBoxColumn,
+            this.StrIngenieroName,
+            this.StrMalacateroName,
             this.comentariosDataGridViewTextBoxColumn,
             this.tablaDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.carreraBindingSource;
@@ -195,14 +195,6 @@ namespace CableManager
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1323, 281);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // CableNumero
-            // 
-            this.CableNumero.DataPropertyName = "CableNumero";
-            this.CableNumero.HeaderText = "Numero de Cable";
-            this.CableNumero.Name = "CableNumero";
-            this.CableNumero.ReadOnly = true;
-            this.CableNumero.Width = 110;
             // 
             // button1
             // 
@@ -373,115 +365,9 @@ namespace CableManager
             this.btnEliminaCarrera.UseVisualStyleBackColor = false;
             this.btnEliminaCarrera.Click += new System.EventHandler(this.btnEliminaCarrera_Click);
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // fechaServicioDataGridViewTextBoxColumn
-            // 
-            this.fechaServicioDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Servicio";
-            this.fechaServicioDataGridViewTextBoxColumn.HeaderText = "Fecha Servicio";
-            this.fechaServicioDataGridViewTextBoxColumn.Name = "fechaServicioDataGridViewTextBoxColumn";
-            this.fechaServicioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cableIdDataGridViewTextBoxColumn
-            // 
-            this.cableIdDataGridViewTextBoxColumn.DataPropertyName = "CableId";
-            this.cableIdDataGridViewTextBoxColumn.HeaderText = "CableId";
-            this.cableIdDataGridViewTextBoxColumn.Name = "cableIdDataGridViewTextBoxColumn";
-            this.cableIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cableIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // serviceorderDataGridViewTextBoxColumn
-            // 
-            this.serviceorderDataGridViewTextBoxColumn.DataPropertyName = "Service_order";
-            this.serviceorderDataGridViewTextBoxColumn.HeaderText = "Services Order";
-            this.serviceorderDataGridViewTextBoxColumn.Name = "serviceorderDataGridViewTextBoxColumn";
-            this.serviceorderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numcarrerasDataGridViewTextBoxColumn
-            // 
-            this.numcarrerasDataGridViewTextBoxColumn.DataPropertyName = "Num_carreras";
-            this.numcarrerasDataGridViewTextBoxColumn.HeaderText = "Numero de Carreras";
-            this.numcarrerasDataGridViewTextBoxColumn.Name = "numcarrerasDataGridViewTextBoxColumn";
-            this.numcarrerasDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // maxprofundidadDataGridViewTextBoxColumn
-            // 
-            this.maxprofundidadDataGridViewTextBoxColumn.DataPropertyName = "Max_profundidad";
-            this.maxprofundidadDataGridViewTextBoxColumn.HeaderText = "Max. Profundidad";
-            this.maxprofundidadDataGridViewTextBoxColumn.Name = "maxprofundidadDataGridViewTextBoxColumn";
-            this.maxprofundidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // maxtensionDataGridViewTextBoxColumn
-            // 
-            this.maxtensionDataGridViewTextBoxColumn.DataPropertyName = "Max_tension";
-            this.maxtensionDataGridViewTextBoxColumn.HeaderText = "Max. Tension";
-            this.maxtensionDataGridViewTextBoxColumn.Name = "maxtensionDataGridViewTextBoxColumn";
-            this.maxtensionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // longpreviaDataGridViewTextBoxColumn
-            // 
-            this.longpreviaDataGridViewTextBoxColumn.DataPropertyName = "Long_previa";
-            this.longpreviaDataGridViewTextBoxColumn.HeaderText = "Long. Previa";
-            this.longpreviaDataGridViewTextBoxColumn.Name = "longpreviaDataGridViewTextBoxColumn";
-            this.longpreviaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantidadcortadaDataGridViewTextBoxColumn
-            // 
-            this.cantidadcortadaDataGridViewTextBoxColumn.DataPropertyName = "Cantidad_cortada";
-            this.cantidadcortadaDataGridViewTextBoxColumn.HeaderText = "Cantidad Cortada";
-            this.cantidadcortadaDataGridViewTextBoxColumn.Name = "cantidadcortadaDataGridViewTextBoxColumn";
-            this.cantidadcortadaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // longactualDataGridViewTextBoxColumn1
-            // 
-            this.longactualDataGridViewTextBoxColumn1.DataPropertyName = "Long_actual";
-            this.longactualDataGridViewTextBoxColumn1.HeaderText = "Long. Actual";
-            this.longactualDataGridViewTextBoxColumn1.Name = "longactualDataGridViewTextBoxColumn1";
-            this.longactualDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // malacateroDataGridViewTextBoxColumn
-            // 
-            this.malacateroDataGridViewTextBoxColumn.DataPropertyName = "Malacatero";
-            this.malacateroDataGridViewTextBoxColumn.HeaderText = "Malacatero";
-            this.malacateroDataGridViewTextBoxColumn.Name = "malacateroDataGridViewTextBoxColumn";
-            this.malacateroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ingenieroDataGridViewTextBoxColumn
-            // 
-            this.ingenieroDataGridViewTextBoxColumn.DataPropertyName = "Ingeniero";
-            this.ingenieroDataGridViewTextBoxColumn.HeaderText = "Ingeniero";
-            this.ingenieroDataGridViewTextBoxColumn.Name = "ingenieroDataGridViewTextBoxColumn";
-            this.ingenieroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // comentariosDataGridViewTextBoxColumn
-            // 
-            this.comentariosDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.comentariosDataGridViewTextBoxColumn.DataPropertyName = "Comentarios";
-            this.comentariosDataGridViewTextBoxColumn.HeaderText = "Comentarios";
-            this.comentariosDataGridViewTextBoxColumn.Name = "comentariosDataGridViewTextBoxColumn";
-            this.comentariosDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tablaDataGridViewTextBoxColumn1
-            // 
-            this.tablaDataGridViewTextBoxColumn1.DataPropertyName = "Tabla";
-            this.tablaDataGridViewTextBoxColumn1.HeaderText = "Tabla";
-            this.tablaDataGridViewTextBoxColumn1.Name = "tablaDataGridViewTextBoxColumn1";
-            this.tablaDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.tablaDataGridViewTextBoxColumn1.Visible = false;
-            // 
             // carreraBindingSource
             // 
             this.carreraBindingSource.DataSource = typeof(CableManager.Modelos.Carrera);
-            // 
-            // cableBindingSource
-            // 
-            this.cableBindingSource.DataSource = typeof(CableManager.Modelos.Cable);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -557,6 +443,120 @@ namespace CableManager
             this.tablaDataGridViewTextBoxColumn.ReadOnly = true;
             this.tablaDataGridViewTextBoxColumn.Visible = false;
             // 
+            // cableBindingSource
+            // 
+            this.cableBindingSource.DataSource = typeof(CableManager.Modelos.Cable);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // fechaServicioDataGridViewTextBoxColumn
+            // 
+            this.fechaServicioDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Servicio";
+            this.fechaServicioDataGridViewTextBoxColumn.HeaderText = "Fecha Servicio";
+            this.fechaServicioDataGridViewTextBoxColumn.Name = "fechaServicioDataGridViewTextBoxColumn";
+            this.fechaServicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CableNumero
+            // 
+            this.CableNumero.DataPropertyName = "CableNumero";
+            this.CableNumero.HeaderText = "Numero de Cable";
+            this.CableNumero.Name = "CableNumero";
+            this.CableNumero.ReadOnly = true;
+            this.CableNumero.Width = 110;
+            // 
+            // cableIdDataGridViewTextBoxColumn
+            // 
+            this.cableIdDataGridViewTextBoxColumn.DataPropertyName = "CableId";
+            this.cableIdDataGridViewTextBoxColumn.HeaderText = "CableId";
+            this.cableIdDataGridViewTextBoxColumn.Name = "cableIdDataGridViewTextBoxColumn";
+            this.cableIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cableIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // serviceorderDataGridViewTextBoxColumn
+            // 
+            this.serviceorderDataGridViewTextBoxColumn.DataPropertyName = "Service_order";
+            this.serviceorderDataGridViewTextBoxColumn.HeaderText = "Services Order";
+            this.serviceorderDataGridViewTextBoxColumn.Name = "serviceorderDataGridViewTextBoxColumn";
+            this.serviceorderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numcarrerasDataGridViewTextBoxColumn
+            // 
+            this.numcarrerasDataGridViewTextBoxColumn.DataPropertyName = "Num_carreras";
+            this.numcarrerasDataGridViewTextBoxColumn.HeaderText = "Numero de Carreras";
+            this.numcarrerasDataGridViewTextBoxColumn.Name = "numcarrerasDataGridViewTextBoxColumn";
+            this.numcarrerasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // maxprofundidadDataGridViewTextBoxColumn
+            // 
+            this.maxprofundidadDataGridViewTextBoxColumn.DataPropertyName = "Max_profundidad";
+            this.maxprofundidadDataGridViewTextBoxColumn.HeaderText = "Max. Profundidad";
+            this.maxprofundidadDataGridViewTextBoxColumn.Name = "maxprofundidadDataGridViewTextBoxColumn";
+            this.maxprofundidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // maxtensionDataGridViewTextBoxColumn
+            // 
+            this.maxtensionDataGridViewTextBoxColumn.DataPropertyName = "Max_tension";
+            this.maxtensionDataGridViewTextBoxColumn.HeaderText = "Max. Tension";
+            this.maxtensionDataGridViewTextBoxColumn.Name = "maxtensionDataGridViewTextBoxColumn";
+            this.maxtensionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // longpreviaDataGridViewTextBoxColumn
+            // 
+            this.longpreviaDataGridViewTextBoxColumn.DataPropertyName = "Long_previa";
+            this.longpreviaDataGridViewTextBoxColumn.HeaderText = "Long. Previa";
+            this.longpreviaDataGridViewTextBoxColumn.Name = "longpreviaDataGridViewTextBoxColumn";
+            this.longpreviaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantidadcortadaDataGridViewTextBoxColumn
+            // 
+            this.cantidadcortadaDataGridViewTextBoxColumn.DataPropertyName = "Cantidad_cortada";
+            this.cantidadcortadaDataGridViewTextBoxColumn.HeaderText = "Cantidad Cortada";
+            this.cantidadcortadaDataGridViewTextBoxColumn.Name = "cantidadcortadaDataGridViewTextBoxColumn";
+            this.cantidadcortadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // longactualDataGridViewTextBoxColumn1
+            // 
+            this.longactualDataGridViewTextBoxColumn1.DataPropertyName = "Long_actual";
+            this.longactualDataGridViewTextBoxColumn1.HeaderText = "Long. Actual";
+            this.longactualDataGridViewTextBoxColumn1.Name = "longactualDataGridViewTextBoxColumn1";
+            this.longactualDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // StrIngenieroName
+            // 
+            this.StrIngenieroName.DataPropertyName = "StrIngenieroName";
+            this.StrIngenieroName.HeaderText = "Ingeniero";
+            this.StrIngenieroName.Name = "StrIngenieroName";
+            this.StrIngenieroName.ReadOnly = true;
+            // 
+            // StrMalacateroName
+            // 
+            this.StrMalacateroName.DataPropertyName = "StrMalacateroName";
+            this.StrMalacateroName.HeaderText = "Malacatero";
+            this.StrMalacateroName.Name = "StrMalacateroName";
+            this.StrMalacateroName.ReadOnly = true;
+            // 
+            // comentariosDataGridViewTextBoxColumn
+            // 
+            this.comentariosDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.comentariosDataGridViewTextBoxColumn.DataPropertyName = "Comentarios";
+            this.comentariosDataGridViewTextBoxColumn.HeaderText = "Comentarios";
+            this.comentariosDataGridViewTextBoxColumn.Name = "comentariosDataGridViewTextBoxColumn";
+            this.comentariosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tablaDataGridViewTextBoxColumn1
+            // 
+            this.tablaDataGridViewTextBoxColumn1.DataPropertyName = "Tabla";
+            this.tablaDataGridViewTextBoxColumn1.HeaderText = "Tabla";
+            this.tablaDataGridViewTextBoxColumn1.Name = "tablaDataGridViewTextBoxColumn1";
+            this.tablaDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.tablaDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,21 +611,7 @@ namespace CableManager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblCarreras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaServicioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CableNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cableIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serviceorderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numcarrerasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxprofundidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxtensionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn longpreviaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadcortadaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn longactualDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn malacateroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingenieroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comentariosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tablaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button btnAddCarrera;
         private System.Windows.Forms.Button btnEditaCarrera;
         private System.Windows.Forms.Button btnEliminaCarrera;
@@ -641,6 +627,21 @@ namespace CableManager
         private System.Windows.Forms.DataGridViewTextBoxColumn fechainstalacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipocableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tablaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaServicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CableNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cableIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serviceorderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numcarrerasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxprofundidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxtensionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn longpreviaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadcortadaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn longactualDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StrIngenieroName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StrMalacateroName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comentariosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tablaDataGridViewTextBoxColumn1;
     }
 }
 
